@@ -2,8 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "mechocoin",
   "owner": {
-    "name": "Gukhyeon Ryu",
-    "email": "rgh4806@gmdsoft.com"
+    "name": "Gukhyeon Ryu"
   },
   "metadata": {
     "description": "MechoCoin을 Claude에서 쓰기 위한 플러그인"
