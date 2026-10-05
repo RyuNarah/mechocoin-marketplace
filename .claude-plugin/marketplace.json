@@ -13,7 +13,7 @@
       "name": "mechocoin",
       "source": "./plugins/mechocoin",
       "repository": "https://github.com/RyuNarah/mechocoin-marketplace/blob/main/plugins/mechocoin",
-      "description": "MechoCoin MCP 서버를 등록합니다. 연결, Overview, Agent, 전략, 백테스트, 내 지표를 Claude에서 다룹니다.",
+      "description": "MechoCoin MCP 서버를 등록하고, TradingView Pine 스크립트를 내 지표로 옮기는 indicator-converter 스킬을 더합니다.",
       "category": "productivity",
       "author": {
         "name": "Gukhyeon Ryu",
