@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "mechocoin",
+  "owner": {
+    "name": "Gukhyeon Ryu",
+    "email": "rgh4806@gmdsoft.com"
+  },
+  "metadata": {
+    "description": "MechoCoin을 Claude에서 쓰기 위한 플러그인"
+  },
+  "plugins": [
+    {
+      "name": "mechocoin",
+      "source": "./plugins/mechocoin",
+      "description": "MechoCoin MCP 서버를 등록합니다. 연결, Overview, Agent, 전략, 백테스트, 내 지표를 Claude에서 다룹니다.",
+      "category": "productivity"
+    }
+  ]
+}

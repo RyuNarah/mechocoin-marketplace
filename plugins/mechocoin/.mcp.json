@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "mechocoin": {
+      "command": "${LOCALAPPDATA}/MechoCoin/mecho-mcp.exe"
+    }
+  }
+}
