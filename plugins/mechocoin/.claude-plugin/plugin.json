@@ -1,8 +1,11 @@
 {
   "name": "mechocoin",
   "version": "1.0.0",
+  "repository": "https://github.com/RyuNarah/mechocoin-marketplace/blob/main/plugins/mechocoin",
   "description": "MechoCoin MCP 서버를 등록합니다. 연결, Overview, Agent, 전략, 백테스트, 내 지표를 Claude에서 다룹니다.",
   "author": {
-    "name": "Gukhyeon Ryu"
+    "name": "Gukhyeon Ryu",
+    "email": "rgh4806@gmail.com",
+    "url": "https://github.com/rgh4806"
   }
 }
