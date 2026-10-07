@@ -292,6 +292,22 @@ plot(rsi[1], 'RSI (closed)', display=display.none, editable=false)    // 봉 마
   두 시점"이 된다. 실시간 봉에서는 직전 봉이 곧 마지막 마감봉이고, 과거 봉은 전부 마감된
   상태이므로 `[1]` 하나로 두 경우가 다 맞는다. `plot()` 안에 식이 바로 들어 있으면 먼저
   변수로 뽑고(`slope = math.todegrees(...)`) 그 변수에 `[1]`을 붙인다.
+- **짝의 `plot()` 첫 인자는 `이름[1]` 하나뿐이다. `[1]` 붙은 항들을 계산으로 엮지 않는다.**
+  `basis[1] + spread[1]`, `trend[1] == 1 ? up[1] : na`, `math.atan(rise[1])`은 값은 맞지만,
+  전략이 판정할 때마다 진행 중인 봉을 통째로 다시 계산해야 읽힌다. `plot(이름[1])` 모양이면
+  마감된 봉에 남아 있는 값을 계산 없이 바로 읽는다 -- 같은 값이고, 판정 한 번이 훨씬 싸다.
+  그래서 식을 먼저 이름에 담고 그 이름을 민다:
+
+  ```pine
+  upperNow   = basis + spread              // 원래 값의 식 그대로
+  upTrendNow = trend == 1 ? up : na
+  plot(upperNow[1],   'upper (closed)',    display=display.none, editable=false)
+  plot(upTrendNow[1], 'Up Trend (closed)', display=display.none, editable=false)
+  ```
+
+  이름은 **최상위에서, 조건 없이, 매 봉 한 번** 정하고 `:=`로 다시 대입하지 않는다 -- 그래야
+  `이름[1]`이 직전 봉의 그 식과 같은 값이다(`if` 안이나 함수 안에서 정하면 아니다).
+  `dirClosed = trend[1]`처럼 `[1]` 하나를 받아 두기만 하는 이름을 거쳐도 된다.
 - **`nz(x[1], …)`로 채우지 않는다.** 첫 봉에는 마감된 봉이 아직 없고, 그 자리는 `na`다.
 - **짝은 늘 `display=display.none, editable=false`다.** 원래 값이 가격이어도 그렇다. 그려
   봐야 원래 선을 한 봉 늦게 그린 것일 뿐이고, 모습 탭에는 무엇도 바꾸지 못하는 행만 하나
@@ -395,6 +411,7 @@ check_indicator { source: <작업 중인 스크립트 전체> }
 - `outputs`에 만들기로 한 값이 **전부** 있고, 만들지 않기로 한 것이 **없는가**.
 - 각 값의 `kind`가 의도대로인가(`number`·`direction`·참거짓). 방향이나 참거짓으로 정한 값이
   `number`로 나오면 `//@direction`·`//@boolean`의 제목 오타다(조용히 무시된다). 짝까지 확인한다.
+- 짝마다 `plot()`의 첫 인자가 `이름[1]` 하나인가(`a[1] + b[1]` 같은 식이 아닌가).
 - 실시간으로 변하는 값마다 `○○ (closed)` 짝이 있는가. 이름이 원래 이름과 글자 하나까지
   같은가(공백·대소문자까지).
 - 그림만 바꾸는 `input.bool`이 `inputs`에서 `design: true`인가. `false`면 `//@design`의 변수 이름
