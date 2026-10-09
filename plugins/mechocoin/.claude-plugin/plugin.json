@@ -1,6 +1,6 @@
 {
   "name": "mechocoin",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": "https://github.com/RyuNarah/mechocoin-marketplace/blob/main/plugins/mechocoin",
   "description": "MechoCoin MCP 서버를 등록하고, TradingView Pine 스크립트를 내 지표로 옮기는 indicator-converter 스킬과 백테스트로 전략을 만드는 strategy-creator 스킬을 더합니다.",
   "author": {
