@@ -263,6 +263,7 @@ description: MechoCoin(Bybit 선물 자동매매)에서 돌 전략을 mechocoin 
 | `get_backtest_log` | 조건 통과(marks)·주문·거래 전체를 시간 범위로 |
 | `get_backtest_trace` | 블록을 떠난 순간마다 이유와 **그 순간의 지표 값**(전략의 지표 + `watch`) |
 | `get_indicator_values` | 지표 하나의 봉마다 값. **전략에 없는 지표도** 된다 |
+| `get_backtest_daily_pnl` | 하루마다의 P&L%와 최대 낙폭·고점 아래 최장 기간. 주·월로 묶거나 최저·최고·0 아래로 떨어진 날·크게 잃은 날만 고른다 |
 | `get_candles` | 봉(OHLCV) — 가격 흐름을 보는 용도 |
 
 세 가지 질문을 기록으로 푼다.
