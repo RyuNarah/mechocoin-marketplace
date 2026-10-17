@@ -124,7 +124,9 @@ description: MechoCoin(Bybit 선물 자동매매)에서 돌 전략을 mechocoin 
 - `list_indicator_catalog` — `query`로 접근법에 맞는 지표를 찾고, 후보마다 `indicatorId`를 주고 다시 불러
   **description을 읽는다**. 판독값마다 이름·형식(숫자·방향·참거짓)·뜻이 적혀 있다. 판독값의 뜻을 이름으로
   짐작하지 않는다 — 같은 "Signal"이 지표마다 다른 것을 뜻한다.
-- 사용자의 내 지표도 같은 목록에 `user:<id>`로 있다.
+- 사용자의 내 지표도 같은 목록에 `user:<id>`로 있다. 다른 사용자가 커뮤니티에 등록한 지표는 `community:<id>`로
+  있고(`kind: "community"`), `publisher`가 등록한 사용자다. 이름이 겹칠 수 있으니 `publisher`로 구별하고, 고를 때는
+  누가 등록한 지표인지 사용자에게 밝힌다. 등록자가 고치거나 지우면 그 지표를 쓰는 Agent가 '오류'가 될 수 있다.
 
 ### 지표의 입력 값도 전략의 일부다
 
