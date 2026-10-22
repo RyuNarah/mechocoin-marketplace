@@ -272,7 +272,13 @@ S는 `0.97p₀`이고 물타기 몫의 손실이 약 1%로 줄어 약 −8.5%가
 
 1. **작업용 Agent를 하나 만든다.** 백테스트는 Agent 단위로 돈다. `create_agent`로 이름에 작업용임을 밝힌
    Agent를 만든다(예: `[전략 작업] BTC 스퀴즈`). 만든 Agent는 중지 상태이고 **스스로 거래하지 않는다**.
-   이후 시안은 저장하지 않고 `run_backtest`의 `strategy` 인자로 넘긴다 — Agent를 시안마다 만들지 않는다.
+   이후 시안은 저장하지 않고 `run_backtest`에 넘긴다 — Agent를 시안마다 만들지 않는다.
+   - **시안은 파일로 주고받는다.** 전략 문서를 `.json` 파일(절대 경로)에 두고, `create_agent`·
+     `validate_strategy`·`save_strategy`·`run_backtest`에는 `strategy` 대신 `strategyPath`로 그 경로를 준다.
+     저장된 전략은 `get_strategy`의 `saveTo`로 파일에 받는다(예약 전략은 옆의 `<이름>.pending.json`).
+     시안을 바꿀 때는 파일에서 바뀌는 줄만 고친다 — 문서 전체를 다시 쓰지 않는다. 수십 KB의 전략을 호출마다
+     인라인으로 다시 쓰면 응답이 길어지고, 긴 응답은 도중에 끊기기 쉽다(특히 하위 에이전트에서). 작은 첫
+     시안 정도만 인라인으로 줘도 된다.
 2. **`validate_strategy`로 먼저 검증한다.** error가 있으면 백테스트도 의미가 없다. warning도 읽는다.
 3. **`run_backtest`**:
    - **한 번에 하나만.** 새로 부르면 진행 중이던 백테스트가 취소된다. 백테스트를 병렬로 돌리거나,
