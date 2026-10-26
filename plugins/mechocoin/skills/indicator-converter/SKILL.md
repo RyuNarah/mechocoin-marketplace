@@ -420,7 +420,7 @@ check_indicator { source: <작업 중인 스크립트 전체> }
   같은가(공백·대소문자까지).
 - 그림만 바꾸는 `input.bool`이 `inputs`에서 `design: true`인가. `false`면 `//@design`의 변수 이름
   오타이거나 `input.bool`이 아닌 것이다(조용히 무시된다).
-- `inputs`의 `id`가 변수명인가(전략이 설정을 채우는 키다). `bars`가 맞게 분류됐는가 —
+- `inputs`의 `id`가 변수명인가(전략이 설정을 채우는 키다. 한 값에 입력이 여럿이면 `이름.필드`·`이름.차례`). `bars`가 맞게 분류됐는가 —
   되돌아보기는 `lookback`, `plot(offset=)`으로 가는 것은 `offset`, 배수는 `none`.
 
 `manifest`에는 **그림 쪽이 없다**: plot마다의 `editable`·`display`, `//@colors`의 이름, 모습 탭의 행.
